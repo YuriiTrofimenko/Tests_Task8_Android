@@ -1,0 +1,11 @@
+# Capabilities #
+platform.name = Android
+device.name = Nexus5
+udid = 02e7d80f212ff612
+app.package = com.google.android.gm
+app.activity = com.google.android.gm.GmailActivity
+command.timeout = 10
+# Mail Content #
+mail.recipient = test@test.com
+mail.subject = Demo mail subject
+mail.body = Demo mail body

@@ -22,7 +22,7 @@ public class InitialPage extends BasePO {
         } catch (Exception ignored){}
         return new InitialPage();
     }
-    public InitialPage clickTakeMeToGmailBtn () {
+    public IncomeLettersPage clickTakeMeToGmailBtn () {
         try {
             Awaiters.waitForAppear(
                 driver,
@@ -34,6 +34,6 @@ public class InitialPage extends BasePO {
                 takeMeToGmailBtn.click();
             }
         } catch (Exception ignored){}
-        return new InitialPage();
+        return new IncomeLettersPage();
     }
 }

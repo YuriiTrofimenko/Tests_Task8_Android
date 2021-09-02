@@ -39,8 +39,8 @@ public class ComposePage extends BasePO {
         } catch (Exception ignored){}
         return new ComposePage();
     }
-    public ComposePage clickSendBtn () {
+    public IncomeLettersPage clickSendBtn () {
         sendBtn.click();
-        return new ComposePage();
+        return new IncomeLettersPage();
     }
 }

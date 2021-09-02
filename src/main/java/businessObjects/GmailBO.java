@@ -1,23 +1,27 @@
 package businessObjects;
 
-import pageObjects.ComposePage;
-import pageObjects.IncomeLettersPage;
-import pageObjects.InitialPage;
-import pageObjects.SentLettersPage;
+import pageObjects.*;
 
 public class GmailBO {
 
+    private BasePO currentPage;
+
+    public GmailBO() {
+        this.currentPage = new InitialPage();
+    }
+
     public GmailBO skipInitialPage() {
-        new InitialPage()
+        this.currentPage =
+            ((InitialPage)this.currentPage)
             .clickGotItBtn()
             .clickTakeMeToGmailBtn();
         return this;
     }
 
     public GmailBO sendLetter(String recipient, String subject, String body) {
-        new IncomeLettersPage()
-            .clickComposeBtn();
-        new ComposePage()
+        this.currentPage =
+            ((IncomeLettersPage)this.currentPage)
+            .clickComposeBtn()
             .clickGotItBtn()
             .typeRecipient(recipient)
             .typeSubject(subject)
@@ -27,13 +31,14 @@ public class GmailBO {
     }
 
     public GmailBO openSentLetters() {
-        new IncomeLettersPage()
-            .clickNavDrawerBtn()
-            .clickSentBtn();
+        this.currentPage =
+            ((IncomeLettersPage)this.currentPage)
+                .clickNavDrawerBtn()
+                .clickSentBtn();
         return this;
     }
 
     public boolean isLetterSent(String subject) throws InterruptedException {
-        return new SentLettersPage().isSentLetterDisplayed(subject);
+        return ((SentLettersPage)this.currentPage).isSentLetterDisplayed(subject);
     }
 }

@@ -12,16 +12,16 @@ public class IncomeLettersPage extends BasePO {
     @FindBy(xpath = "//android.widget.LinearLayout//android.widget.TextView[@text='Sent']")
     private WebElement sentBtn;
 
-    public IncomeLettersPage clickComposeBtn () {
+    public ComposePage clickComposeBtn () {
         composeBtn.click();
-        return new IncomeLettersPage();
+        return new ComposePage();
     }
     public IncomeLettersPage clickNavDrawerBtn () {
         navDrawerBtn.click();
         return new IncomeLettersPage();
     }
-    public IncomeLettersPage clickSentBtn () {
+    public SentLettersPage clickSentBtn () {
         sentBtn.click();
-        return new IncomeLettersPage();
+        return new SentLettersPage();
     }
 }

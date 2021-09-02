@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Awaiters;
 
 public class InitialPage extends BasePO {
 
@@ -19,17 +20,20 @@ public class InitialPage extends BasePO {
                 gotItBtn.click();
             }
         } catch (Exception ignored){}
-        return this;
+        return new InitialPage();
     }
     public InitialPage clickTakeMeToGmailBtn () {
         try {
-            Thread.sleep(1000);
+            Awaiters.waitForAppear(
+                driver,
+                By.id("com.google.android.gm:id/owner")
+            );
             WebElement takeMeToGmailBtn =
                 driver.findElement(By.id("com.google.android.gm:id/action_done"));
             if (takeMeToGmailBtn != null) {
                 takeMeToGmailBtn.click();
             }
         } catch (Exception ignored){}
-        return this;
+        return new InitialPage();
     }
 }

@@ -19,15 +19,15 @@ public class ComposePage extends BasePO {
 
     public ComposePage typeRecipient (String recipient) {
         toInput.sendKeys(recipient);
-        return this;
+        return new ComposePage();
     }
     public ComposePage typeSubject (String subject) {
         subjectInput.sendKeys(subject);
-        return this;
+        return new ComposePage();
     }
     public ComposePage typeBody (String body) {
         bodyInput.sendKeys(body);
-        return this;
+        return new ComposePage();
     }
     public ComposePage clickGotItBtn () {
         try {
@@ -37,10 +37,10 @@ public class ComposePage extends BasePO {
                 gotItBtn.click();
             }
         } catch (Exception ignored){}
-        return this;
+        return new ComposePage();
     }
     public ComposePage clickSendBtn () {
         sendBtn.click();
-        return this;
+        return new ComposePage();
     }
 }

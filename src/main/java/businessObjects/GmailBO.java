@@ -7,29 +7,17 @@ import pageObjects.SentLettersPage;
 
 public class GmailBO {
 
-    private InitialPage initialPage;
-    private IncomeLettersPage incomeLettersPage;
-    private ComposePage composePage;
-    private SentLettersPage sentLettersPage;
-
-    public GmailBO() {
-        initialPage = new InitialPage();
-        incomeLettersPage = new IncomeLettersPage();
-        composePage = new ComposePage();
-        sentLettersPage = new SentLettersPage();
-    }
-
     public GmailBO skipInitialPage() {
-        initialPage
+        new InitialPage()
             .clickGotItBtn()
             .clickTakeMeToGmailBtn();
         return this;
     }
 
     public GmailBO sendLetter(String recipient, String subject, String body) {
-        incomeLettersPage
+        new IncomeLettersPage()
             .clickComposeBtn();
-        composePage
+        new ComposePage()
             .clickGotItBtn()
             .typeRecipient(recipient)
             .typeSubject(subject)
@@ -39,14 +27,13 @@ public class GmailBO {
     }
 
     public GmailBO openSentLetters() {
-        incomeLettersPage
+        new IncomeLettersPage()
             .clickNavDrawerBtn()
             .clickSentBtn();
         return this;
     }
 
     public boolean isLetterSent(String subject) throws InterruptedException {
-        Thread.sleep(3000);
-        return sentLettersPage.isSentLetterDisplayed(subject);
+        return new SentLettersPage().isSentLetterDisplayed(subject);
     }
 }

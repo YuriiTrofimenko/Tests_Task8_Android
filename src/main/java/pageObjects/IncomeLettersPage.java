@@ -14,14 +14,14 @@ public class IncomeLettersPage extends BasePO {
 
     public IncomeLettersPage clickComposeBtn () {
         composeBtn.click();
-        return this;
+        return new IncomeLettersPage();
     }
     public IncomeLettersPage clickNavDrawerBtn () {
         navDrawerBtn.click();
-        return this;
+        return new IncomeLettersPage();
     }
     public IncomeLettersPage clickSentBtn () {
         sentBtn.click();
-        return this;
+        return new IncomeLettersPage();
     }
 }
